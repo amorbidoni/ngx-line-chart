@@ -1,0 +1,43 @@
+<div class="component">
+  <div class="chart">
+    <ngx-charts-line-chart
+      [view]="view"
+      [scheme]="colorScheme"
+      [legend]="legend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [timeline]="timeline"
+      [results]="multi"
+    >
+    </ngx-charts-line-chart>
+  </div>
+  <div class="btns">
+    <ul>
+      <div *ngFor="let data of listBtns; let i = index">
+        <li (click)="onSelect(data.name, i)" [ngStyle]="styleBtnsList(i)">
+          <div class="list-box" [ngStyle]="styleIconList(i)"></div>
+          {{ data.name }}
+        </li>
+      </div>
+    </ul>
+    <div class="btns">
+      <form [formGroup]="miFormulario">
+        <div class="container__switch">
+          <p>Gradiente:</p>
+          <label class="switch">
+            <input
+              type="checkbox"
+              formControlName="toggleGradient"
+              [checked]="seeGradient()"
+            />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
